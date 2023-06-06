@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://nodes/actions/MessageDialogAction.gd" type="Script" id=1]
+[ext_resource path="res://world/recurring_npcs/SunnyPunk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://nodes/actions/Cutscene.gd" type="Script" id=3]
+[ext_resource path="res://nodes/actions/ConfirmDialogAction.gd" type="Script" id=4]
+[ext_resource path="res://nodes/actions/UnlockPartnerAction.gd" type="Script" id=5]
+[ext_resource path="res://sfx/voices/sunny/sunny_accept.wav" type="AudioStream" id=6]
+[ext_resource path="res://sprites/portraits/sunny_new_happy.png" type="Texture" id=7]
+[ext_resource path="res://nodes/actions/SetBlackboardValues.gd" type="Script" id=8]
+
+[node name="SunnyPunk" instance=ExtResource( 2 )]
+
+[node name="CatSunny_MakePartner" type="Node" parent="InteractionBehavior" index="2"]
+script = ExtResource( 3 )
+always_succeed = true
+deny_partner_unlocked = "cat_sunny"
+
+[node name="SetBlackboardValues" type="Node" parent="InteractionBehavior/CatSunny_MakePartner" index="0"]
+script = ExtResource( 8 )
+bb_values = {
+"name": "SUNNY_NAME"
+}
+
+[node name="ConfirmDialogAction" type="Node" parent="InteractionBehavior/CatSunny_MakePartner" index="1"]
+script = ExtResource( 4 )
+message = "PARTNER_SWAP_CONFIRM"
+substitute_blackboard_keys = [ "name" ]
+
+[node name="MessageDialogAction" type="Node" parent="InteractionBehavior/CatSunny_MakePartner/ConfirmDialogAction" index="0"]
+script = ExtResource( 1 )
+portrait = ExtResource( 7 )
+audio = ExtResource( 6 )
+title = "SUNNY_NAME"
+messages = [ "CAT_SUNNY_PARTNER1" ]
+
+[node name="UnlockPartnerAction" type="Node" parent="InteractionBehavior/CatSunny_MakePartner/ConfirmDialogAction" index="1"]
+script = ExtResource( 5 )
+partner_id = "cat_sunny"
+portrait = ExtResource( 7 )

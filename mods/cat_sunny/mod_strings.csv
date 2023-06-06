@@ -1,0 +1,5 @@
+key,en
+MOD_CAT_SUNNY_NAME,Partner Sunny
+SWAP_PARTNER_CAT_SUNNY1,[wave amp=20 freq=5]Hey… {player}…[/wave]
+PARTNER_LEVELUP_CAT_SUNNY1,[wave amp=20 freq=5]Uhhh… I've been… training…[/wave]
+CAT_SUNNY_PARTNER1,[wave amp=20 freq=5]Sunny will follow… Let's go… {player}…[/wave]

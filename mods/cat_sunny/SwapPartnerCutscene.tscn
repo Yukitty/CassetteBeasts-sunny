@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://nodes/actions/CheckConditionAction.gd" type="Script" id=1]
+[ext_resource path="res://nodes/actions/MessageDialogAction.gd" type="Script" id=2]
+[ext_resource path="res://nodes/actions/ConsumePartnerBGLevelsAction.gd" type="Script" id=3]
+[ext_resource path="res://addons/misc_utils/actions/composites/Selector.gd" type="Script" id=4]
+[ext_resource path="res://nodes/partners/SwapPartnerCutscene.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sfx/voices/sunny/sunny_awkward.wav" type="AudioStream" id=6]
+[ext_resource path="res://sfx/voices/sunny/sunny_greeting.wav" type="AudioStream" id=7]
+[ext_resource path="res://sprites/portraits/sunny_new_happy.png" type="Texture" id=8]
+[ext_resource path="res://sprites/portraits/sunny_new_default.png" type="Texture" id=9]
+
+[node name="Cutscene" instance=ExtResource( 5 )]
+
+[node name="CheckCondition_CatSunny" type="Node" parent="Selector/Sequence" index="6"]
+script = ExtResource( 1 )
+always_succeed = true
+require_partner_id = "cat_sunny"
+
+[node name="Selector" type="Node" parent="Selector/Sequence/CheckCondition_CatSunny" index="0"]
+script = ExtResource( 4 )
+
+[node name="ConsumePartnerBGLevelsAction" type="Node" parent="Selector/Sequence/CheckCondition_CatSunny/Selector" index="0"]
+script = ExtResource( 3 )
+
+[node name="MessageDialogAction" type="Node" parent="Selector/Sequence/CheckCondition_CatSunny/Selector/ConsumePartnerBGLevelsAction" index="0"]
+script = ExtResource( 2 )
+portrait = ExtResource( 8 )
+audio = ExtResource( 6 )
+title = "SUNNY_NAME"
+messages = [ "PARTNER_LEVELUP_CAT_SUNNY1" ]
+
+[node name="MessageDialogAction" type="Node" parent="Selector/Sequence/CheckCondition_CatSunny/Selector" index="1"]
+script = ExtResource( 2 )
+portrait = ExtResource( 9 )
+audio = ExtResource( 7 )
+title = "SUNNY_NAME"
+messages = [ "SUNNY_INTERACT2" ]

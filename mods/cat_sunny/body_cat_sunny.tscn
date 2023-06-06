@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://mods/cat_sunny/body_sunny.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Rect2( 1296, 0, 48, 48 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 1152, 0, 48, 48 ), Rect2( 1200, 0, 48, 48 ), Rect2( 1248, 0, 48, 48 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 576, 0, 48, 48 ), Rect2( 624, 0, 48, 48 ), Rect2( 672, 0, 48, 48 ), Rect2( 720, 0, 48, 48 ), Rect2( 768, 0, 48, 48 ), Rect2( 816, 0, 48, 48 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 0, 48, 48 ), Rect2( 48, 0, 48, 48 ), Rect2( 96, 0, 48, 48 ), Rect2( 144, 0, 48, 48 ), Rect2( 192, 0, 48, 48 ), Rect2( 240, 0, 48, 48 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 864, 0, 48, 48 ), Rect2( 912, 0, 48, 48 ), Rect2( 960, 0, 48, 48 ), Rect2( 1008, 0, 48, 48 ), Rect2( 1056, 0, 48, 48 ), Rect2( 1104, 0, 48, 48 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 864, 0, 48, 48 ), Rect2( 912, 0, 48, 48 ), Rect2( 960, 0, 48, 48 ), Rect2( 1008, 0, 48, 48 ), Rect2( 1056, 0, 48, 48 ), Rect2( 1104, 0, 48, 48 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 288, 0, 48, 48 ), Rect2( 336, 0, 48, 48 ), Rect2( 384, 0, 48, 48 ), Rect2( 432, 0, 48, 48 ), Rect2( 480, 0, 48, 48 ), Rect2( 528, 0, 48, 48 ) ]
+}
+
+[node name="body_sunny" type="Node2D"]
+__meta__ = {
+"_ase_imported": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 576, 0, 48, 48 )
+__meta__ = {
+"_ase_imported": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/defeated = SubResource( 1 )
+anims/hurt = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/inactive = SubResource( 4 )
+anims/tapeless_alt_idle = SubResource( 5 )
+anims/tapeless_idle = SubResource( 6 )
+anims/transform = SubResource( 7 )
+__meta__ = {
+"_ase_imported": true
+}
