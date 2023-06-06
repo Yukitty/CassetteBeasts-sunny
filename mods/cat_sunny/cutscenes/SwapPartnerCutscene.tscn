@@ -35,4 +35,4 @@ script = ExtResource( 2 )
 portrait = ExtResource( 9 )
 audio = ExtResource( 7 )
 title = "SUNNY_NAME"
-messages = [ "SUNNY_INTERACT2" ]
+messages = [ "SWAP_PARTNER_CAT_SUNNY1" ]

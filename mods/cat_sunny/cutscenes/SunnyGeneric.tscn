@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://nodes/actions/Cutscene.gd" type="Script" id=1]
+[ext_resource path="res://nodes/actions/CheckConditionAction.gd" type="Script" id=2]
+[ext_resource path="res://nodes/actions/MessageDialogAction.gd" type="Script" id=3]
+[ext_resource path="res://addons/misc_utils/actions/composites/RandomBranch.gd" type="Script" id=4]
+
+[node name="Cutscene_CatSunny" type="Node"]
+script = ExtResource( 1 )
+require_partner_id = "cat_sunny"
+
+[node name="RandomBranch" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="MessageDialogAction" type="Node" parent="RandomBranch"]
+script = ExtResource( 3 )
+messages = [ "RESTING_CAT_SUNNY_PLATONIC_1" ]
+
+[node name="MessageDialogAction2" type="Node" parent="RandomBranch"]
+script = ExtResource( 3 )
+messages = [ "RESTING_CAT_SUNNY_PLATONIC_2" ]
+
+[node name="MessageDialogAction3" type="Node" parent="RandomBranch"]
+script = ExtResource( 3 )
+messages = [ "RESTING_CAT_SUNNY_PLATONIC_3" ]
+
+[node name="CheckConditionAction" type="Node" parent="RandomBranch"]
+script = ExtResource( 2 )
+require_scene_path = "Overworld"
+
+[node name="MessageDialogAction4" type="Node" parent="RandomBranch/CheckConditionAction"]
+script = ExtResource( 3 )
+messages = [ "RESTING_CAT_SUNNY_PLATONIC_4" ]

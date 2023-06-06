@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://nodes/actions/CheckConditionAction.gd" type="Script" id=1]
+[ext_resource path="res://nodes/actions/MessageDialogAction.gd" type="Script" id=2]
+[ext_resource path="res://cutscenes/archangels/PartnerArchangelReaction.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sfx/voices/sunny/sunny_surprise_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://addons/misc_utils/actions/decorators/Succeeder.gd" type="Script" id=5]
+[ext_resource path="res://sprites/portraits/sunny_new_default.png" type="Texture" id=6]
+[ext_resource path="res://nodes/actions/CounterIndexedSequence.gd" type="Script" id=7]
+[ext_resource path="res://sfx/voices/sunny/sunny_thinking_1.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/voices/sunny/sunny_motivated_1.wav" type="AudioStream" id=9]
+
+[node name="PartnerArchangelReaction" instance=ExtResource( 3 )]
+
+[node name="CheckConditionAction_CatSunny" type="Node" parent="Selector" index="5"]
+script = ExtResource( 1 )
+
+[node name="Succeeder" type="Node" parent="Selector/CheckConditionAction_CatSunny" index="0"]
+script = ExtResource( 5 )
+
+[node name="CounterIndexedSequence" type="Node" parent="Selector/CheckConditionAction_CatSunny/Succeeder" index="0"]
+script = ExtResource( 7 )
+clamp_index = false
+index_counter = "cat_sunny_archangel_count"
+
+[node name="MessageDialogAction" type="Node" parent="Selector/CheckConditionAction_CatSunny/Succeeder/CounterIndexedSequence" index="0"]
+script = ExtResource( 2 )
+portrait = ExtResource( 6 )
+audio = ExtResource( 4 )
+title = "SUNNY_NAME"
+messages = [ "CAT_SUNNY_ARCHANGEL_REACTION1" ]
+
+[node name="MessageDialogAction2" type="Node" parent="Selector/CheckConditionAction_CatSunny/Succeeder/CounterIndexedSequence" index="1"]
+script = ExtResource( 2 )
+portrait = ExtResource( 6 )
+audio = ExtResource( 8 )
+title = "SUNNY_NAME"
+messages = [ "CAT_SUNNY_ARCHANGEL_REACTION2" ]
+
+[node name="MessageDialogAction3" type="Node" parent="Selector/CheckConditionAction_CatSunny/Succeeder/CounterIndexedSequence" index="2"]
+script = ExtResource( 2 )
+portrait = ExtResource( 6 )
+audio = ExtResource( 9 )
+title = "SUNNY_NAME"
+messages = [ "CAT_SUNNY_ARCHANGEL_REACTION3" ]

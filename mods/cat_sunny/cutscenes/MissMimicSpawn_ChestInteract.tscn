@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://nodes/actions/CheckConditionAction.gd" type="Script" id=1]
+[ext_resource path="res://nodes/actions/MessageDialogAction.gd" type="Script" id=2]
+[ext_resource path="res://sprites/portraits/sunny_new_default.png" type="Texture" id=3]
+[ext_resource path="res://sfx/voices/sunny/sunny_questioning.wav" type="AudioStream" id=4]
+[ext_resource path="res://cutscenes/passive_quests/MissMimicSpawn_ChestInteract.tscn" type="PackedScene" id=5]
+
+[node name="Cutscene" instance=ExtResource( 5 )]
+
+[node name="CheckConditionAction_CatSunny" type="Node" parent="." index="7"]
+script = ExtResource( 1 )
+require_partner_id = "cat_sunny"
+
+[node name="MessageDialogAction" type="Node" parent="CheckConditionAction_CatSunny" index="0"]
+script = ExtResource( 2 )
+portrait = ExtResource( 3 )
+audio = ExtResource( 4 )
+title = "SUNNY_NAME"
+messages = [ "MISS_MIMIC_CHEST_CAT_SUNNY1" ]

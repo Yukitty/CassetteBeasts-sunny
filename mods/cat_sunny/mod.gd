@@ -13,6 +13,10 @@ const WORLD_SCENE_CALLBACKS: Dictionary = {
 # This includes take_over_path getting reverted.
 var swap_partner_cutscene: PackedScene
 var sunny_punk: PackedScene
+var camping: PackedScene
+var partner_archangel_reaction: PackedScene
+var partner_archangel_reaction_counter: PackedScene
+var miss_mimic_spawn_chest_interact: PackedScene
 var save_state_party: GDScript
 var battle_body: LayerPartIndex
 var world_arms: LayerPartIndex
@@ -55,13 +59,27 @@ func init_content() -> void:
 	assert(not SceneManager.preloader.singleton_setup_complete)
 	yield(SceneManager.preloader, "singleton_setup_completed")
 
-	# Extend SwapPartnerCutscene
-	swap_partner_cutscene = load("res://mods/cat_sunny/SwapPartnerCutscene.tscn")
-	swap_partner_cutscene.take_over_path("res://nodes/partners/SwapPartnerCutscene.tscn")
-
 	# Extend SunnyPunk
 	sunny_punk = load("res://mods/cat_sunny/SunnyPunk.tscn")
 	sunny_punk.take_over_path("res://world/recurring_npcs/SunnyPunk.tscn")
+
+	# Extend SwapPartnerCutscene
+	swap_partner_cutscene = load("res://mods/cat_sunny/cutscenes/SwapPartnerCutscene.tscn")
+	swap_partner_cutscene.take_over_path("res://nodes/partners/SwapPartnerCutscene.tscn")
+
+	# Extend Camping cutscene
+	camping = load("res://mods/cat_sunny/cutscenes/Camping.tscn")
+	camping.take_over_path("res://cutscenes/Camping.tscn")
+
+	# Extend PartnerArchangelReaction
+	partner_archangel_reaction = load("res://mods/cat_sunny/cutscenes/PartnerArchangelReaction.tscn")
+	partner_archangel_reaction.take_over_path("res://cutscenes/archangels/PartnerArchangelReaction.tscn")
+	partner_archangel_reaction_counter = load("res://mods/cat_sunny/cutscenes/PartnerArchangelReaction_CountInc.tscn")
+	partner_archangel_reaction_counter.take_over_path("res://cutscenes/archangels/PartnerArchangelReaction_CountInc.tscn")
+
+	# Extend MissMimicSpawn_ChestInteract
+	miss_mimic_spawn_chest_interact = load("res://mods/cat_sunny/cutscenes/MissMimicSpawn_ChestInteract.tscn")
+	miss_mimic_spawn_chest_interact.take_over_path("res://cutscenes/passive_quests/MissMimicSpawn_ChestInteract.tscn")
 
 	# Add sunny to the global partners list
 	SaveState.party.source_partners.push_back(CHARACTER_SUNNY)
@@ -84,8 +102,8 @@ func _on_SceneManager_scene_changed() -> void:
 func _on_GramophoneInterior_ready(scene: Node) -> void:
 	var sunny := WarpTarget.new()
 	sunny.name = CHARACTER_SUNNY.partner_id
-	sunny.translation = Vector3(22.836, 4.65, 0.529)
-	sunny.direction = "right"
+	sunny.translation = Vector3(9.22, 2, -1.25)
+	sunny.direction = "down"
 
 	var unlocked_partner_spawner: Spatial = scene.get_node("UnlockedPartnerSpawner")
 	unlocked_partner_spawner.add_child(sunny)

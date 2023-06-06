@@ -1,5 +1,14 @@
 key,en
 MOD_CAT_SUNNY_NAME,Partner Sunny
-SWAP_PARTNER_CAT_SUNNY1,[wave amp=20 freq=5]Hey… {player}…[/wave]
-PARTNER_LEVELUP_CAT_SUNNY1,[wave amp=20 freq=5]Uhhh… I've been… training…[/wave]
-CAT_SUNNY_PARTNER1,[wave amp=20 freq=5]Sunny will follow… Let's go… {player}…[/wave]
+SWAP_PARTNER_CAT_SUNNY1,[wave amp=20 freq=5]Let’s go… {player}…[/wave]
+PARTNER_LEVELUP_CAT_SUNNY1,[wave amp=20 freq=5]Uhhh… {partner} has been… training…[/wave]
+CAT_SUNNY_PARTNER1,[wave amp=20 freq=5]{pawn} will follow… Let’s go… {player}…[/wave]
+LEVEL_WARNING_cat_sunny,[wave amp=20 freq=5]Monsters… very strong here…[/wave]
+RESTING_CAT_SUNNY_PLATONIC_1,{partner} watches you vacantly for a while. Then she tries to smile.
+RESTING_CAT_SUNNY_PLATONIC_2,"You try to start a conversation, but {partner} doesn't seem to notice."
+RESTING_CAT_SUNNY_PLATONIC_3,"{partner} awkwardly looks around, trying to figure out what she should be doing right now."
+RESTING_CAT_SUNNY_PLATONIC_4,The fire seems to have captivated {partner}’s attention. She hasn't looked away in a while.
+CAT_SUNNY_ARCHANGEL_REACTION1,[wave amp=20 freq=5]{player}… The district manager is here…[/wave]
+CAT_SUNNY_ARCHANGEL_REACTION2,[wave amp=20 freq=5].........[/wave]
+CAT_SUNNY_ARCHANGEL_REACTION3,[wave amp=20 freq=5]Go home… Archangel. Your services are… no longer… required.[/wave]
+MISS_MIMIC_CHEST_CAT_SUNNY1,[wave amp=20 freq=5]{player}… Be careful…[/wave]

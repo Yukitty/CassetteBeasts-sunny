@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 id = "cat_sunny"
 name = "MOD_CAT_SUNNY_NAME"
-version_code = 0
+version_code = 1
 version_string = "1.0"
 author = "cat"
 save_file_format_tag = ""

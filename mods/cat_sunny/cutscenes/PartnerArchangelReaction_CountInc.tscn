@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://nodes/actions/CheckConditionAction.gd" type="Script" id=1]
+[ext_resource path="res://nodes/actions/AddCounterAction.gd" type="Script" id=2]
+[ext_resource path="res://cutscenes/archangels/PartnerArchangelReaction_CountInc.tscn" type="PackedScene" id=3]
+
+[node name="PartnerArchangelReaction_CountInc" instance=ExtResource( 3 )]
+
+[node name="CheckConditionAction_CatSunny" type="Node" parent="Selector" index="5"]
+script = ExtResource( 1 )
+require_partner_id = "cat_sunny"
+
+[node name="AddCounterAction" type="Node" parent="Selector/CheckConditionAction_CatSunny" index="0"]
+script = ExtResource( 2 )
+counter = "cat_sunny_archangel_count"
+increment = 1

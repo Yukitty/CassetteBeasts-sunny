@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://mods/cat_sunny/cutscenes/SunnyGeneric.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cutscenes/Camping.tscn" type="PackedScene" id=2]
+
+[node name="Cutscene" instance=ExtResource( 2 )]
+
+[node name="Cutscene_CatSunny" parent="Succeeder/ChangeTrackerTargetAction/ShowCampingMenuAction/FetchInterdimensionalPost/CheckConditionAction/AfterSceneChangeFailer/Selector" index="7" instance=ExtResource( 1 )]
