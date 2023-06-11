@@ -1,7 +1,7 @@
 extends ContentInfo
 
 
-const CHARACTER_SUNNY: Character = preload("character_sunny.tres")
+var CHARACTER_SUNNY: Character
 
 const WORLD_SCENE_CALLBACKS: Dictionary = {
 	"res://world/maps/interiors/GramophoneInterior.tscn":
@@ -18,9 +18,6 @@ var partner_archangel_reaction: PackedScene
 var partner_archangel_reaction_counter: PackedScene
 var miss_mimic_spawn_chest_interact: PackedScene
 var save_state_party: GDScript
-var battle_body: LayerPartIndex
-var world_arms: LayerPartIndex
-var world_body: LayerPartIndex
 
 
 func init_content() -> void:
@@ -29,35 +26,40 @@ func init_content() -> void:
 	# Add translation strings
 	TranslationServer.add_translation(preload("mod_strings.en.translation"))
 
-	# Add battle/body_cat_sunny to parts
-	battle_body = load("res://sprites/characters/battle/human_layers/body.tres")
-	battle_body.parts.push_back(preload("body_cat_sunny.tscn"))
-
-	# Duplicate vanilla world/body_sunny as body_cat_sunny
-	res = load("res://sprites/characters/world/human_layers/body_sunny.json")
-	res.duplicate()
-	res.resource_path = "res://mods/cat_sunny/world/body_cat_sunny.tscn"
-	world_body = load("res://sprites/characters/world/human_layers/body.tres")
-	world_body.parts.push_back(res)
-
-	# Duplicate vanilla world/arms_sunny as arms_cat_sunny
-	res = load("res://sprites/characters/world/human_layers/arms_sunny.json")
-	res.duplicate()
-	res.resource_path = "res://mods/cat_sunny/world/arms_cat_sunny.tscn"
-	world_arms = load("res://sprites/characters/world/human_layers/arms.tres")
-	world_arms.parts.push_back(res)
-
 	# World scene callbacks
 	SceneManager.connect("scene_changed", self, "_on_SceneManager_scene_changed")
 	SceneManager.connect("scene_change_starting", self, "_on_SceneManager_scene_changed", [], CONNECT_ONESHOT)
 
-	# Extend SaveState.party (bugfix and Bonus Stickers)
+	# Extend SaveState.party (bootleg bugfix and Bonus Stickers)
 	save_state_party = load("res://mods/cat_sunny/Party.gd")
 	save_state_party.take_over_path("res://global/save_state/Party.gd")
 
 	# Finish initialization later
 	assert(not SceneManager.preloader.singleton_setup_complete)
 	yield(SceneManager.preloader, "singleton_setup_completed")
+
+	# Add body_cat_sunny to battle parts
+	_add_part_to_index(HumanLayersHelper.battle_layer_table.body, preload("body_cat_sunny.tscn"))
+
+	# Duplicate vanilla world/body_sunny as body_cat_sunny
+	res = load("res://sprites/characters/world/human_layers/body_sunny.json")
+	res.duplicate()
+	res.resource_path = "res://mods/cat_sunny/world/body_cat_sunny.tscn"
+	_add_part_to_index(HumanLayersHelper.world_layer_table.body, res)
+
+	# Duplicate vanilla world/arms_sunny as arms_cat_sunny
+	res = load("res://sprites/characters/world/human_layers/arms_sunny.json")
+	res.duplicate()
+	res.resource_path = "res://mods/cat_sunny/world/arms_cat_sunny.tscn"
+	_add_part_to_index(HumanLayersHelper.world_layer_table.arms, res)
+
+	# I have no idea what this does, I'm GRASPING here
+	if not "cat_sunny" in HumanLayersHelper.bodies:
+		HumanLayersHelper.bodies.push_back("cat_sunny")
+	assert("cat_sunny" in HumanLayersHelper.arms)
+
+	# Late load Sunny's Character
+	CHARACTER_SUNNY = load("res://mods/cat_sunny/character_sunny.tres")
 
 	# Extend SunnyPunk
 	sunny_punk = load("res://mods/cat_sunny/SunnyPunk.tscn")
@@ -91,6 +93,15 @@ func init_content() -> void:
 	SaveState.party._make_tapes_unique(p)
 	SaveState.party.partners.push_back(p)
 	SaveState.party.unlocked_partners.push_back(p.partner_id)
+
+
+func _add_part_to_index(index: LayerPartIndex, part: PackedScene) -> void:
+	index.parts.push_back(part)
+	if index._parts_by_name.empty():
+		return
+	var pn: String = index.get_part_name(part)
+	index._parts_by_name[pn] = part
+	index.part_names.push_back(pn)
 
 
 func _on_SceneManager_scene_changed() -> void:

@@ -58,19 +58,12 @@ favorite = true
 resource_name = "SUNNY_NAME Lv100"
 script = ExtResource( 1 )
 name = "SUNNY_NAME"
-swap_colors = [  ]
-default_palette = [  ]
-emission_palette = [  ]
 named_positions = {
 "attack": Vector2( 41, 25 ),
 "eye": Vector2( 27, 19 ),
 "hit": Vector2( 26, 28 )
 }
-elemental_types = [  ]
-exp_yield = 40
-require_dlc = ""
 character_kind = 1
-force_unrecordable = false
 human_colors = {
 "body_color_1": 6,
 "body_color_2": 2,
@@ -93,20 +86,12 @@ human_part_names = {
 }
 level = 100
 pronouns = 1
-max_ap = 5
-base_ap_regen = 2
 base_max_hp = 120
 base_melee_attack = 120
 base_melee_defense = 110
-base_ranged_attack = 100
 base_ranged_defense = 110
 base_speed = 80
-base_accuracy = 100
-base_evasion = 100
 tapes = [ SubResource( 1 ) ]
-team_name_override = ""
-exp_gradient = 5
-exp_base_level = 0
 partner_id = "cat_sunny"
 partner_signature_species = ExtResource( 5 )
 sfx = SubResource( 2 )

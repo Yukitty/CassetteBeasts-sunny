@@ -1,4 +1,4 @@
-extends Character
+extends "res://mods/cat_sunny/BugfixCharacter.gd"
 
 
 # BattleMoves
