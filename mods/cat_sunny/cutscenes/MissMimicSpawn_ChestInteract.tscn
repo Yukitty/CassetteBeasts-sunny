@@ -10,6 +10,7 @@
 
 [node name="CheckConditionAction_CatSunny" type="Node" parent="." index="7"]
 script = ExtResource( 1 )
+always_succeed = true
 require_partner_id = "cat_sunny"
 
 [node name="MessageDialogAction" type="Node" parent="CheckConditionAction_CatSunny" index="0"]
