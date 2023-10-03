@@ -1,15 +1,15 @@
-[gd_resource type="Resource" load_steps=24 format=2]
+[gd_resource type="Resource" load_steps=23 format=2]
 
-[ext_resource path="res://mods/cat_sunny/BonusStickersCharacter.gd" type="Script" id=1]
-[ext_resource path="res://data/MonsterTape.gd" type="Script" id=2]
-[ext_resource path="res://data/battle_moves/smack.tres" type="Resource" id=3]
+[ext_resource path="res://data/Character.gd" type="Script" id=1]
+[ext_resource path="res://data/monster_forms/pawndead.tres" type="Resource" id=2]
+[ext_resource path="res://data/MonsterTape.gd" type="Script" id=3]
 [ext_resource path="res://data/CharacterSfx.gd" type="Script" id=4]
-[ext_resource path="res://data/monster_forms/cluckabilly.tres" type="Resource" id=5]
-[ext_resource path="res://data/battle_moves/nod.tres" type="Resource" id=6]
+[ext_resource path="res://data/battle_moves/smack.tres" type="Resource" id=5]
+[ext_resource path="res://data/battle_moves/fossil.tres" type="Resource" id=6]
 [ext_resource path="res://sfx/voices/sunny/sunny_thinking_2.wav" type="AudioStream" id=7]
 [ext_resource path="res://sfx/voices/sunny/sunny_greeting.wav" type="AudioStream" id=8]
 [ext_resource path="res://sfx/voices/sunny/sunny_thinking_1.wav" type="AudioStream" id=9]
-[ext_resource path="res://data/battle_moves/snow_rush.tres" type="Resource" id=10]
+[ext_resource path="res://data/monster_forms/mascotoy.tres" type="Resource" id=10]
 [ext_resource path="res://sfx/voices/sunny/sunny_thanks.wav" type="AudioStream" id=11]
 [ext_resource path="res://sfx/voices/sunny/sunny_laugh_1.wav" type="AudioStream" id=12]
 [ext_resource path="res://sfx/voices/sunny/sunny_surprise_1.wav" type="AudioStream" id=13]
@@ -20,7 +20,6 @@
 [ext_resource path="res://sfx/voices/sunny/sunny_decline.wav" type="AudioStream" id=18]
 [ext_resource path="res://sfx/voices/sunny/sunny_sigh_1.wav" type="AudioStream" id=19]
 [ext_resource path="res://sfx/voices/sunny/sunny_accept.wav" type="AudioStream" id=20]
-[ext_resource path="res://data/elemental_types/ice.tres" type="Resource" id=21]
 
 [sub_resource type="Resource" id=2]
 resource_name = "sunny_sfx"
@@ -39,31 +38,38 @@ sigh_2 = [ ExtResource( 19 ) ]
 surprise_2 = [ ExtResource( 13 ) ]
 thinking = [ ExtResource( 9 ), ExtResource( 7 ) ]
 
-[sub_resource type="Resource" id=1]
-resource_name = "cluckabilly Gr0 ice"
-script = ExtResource( 2 )
+[sub_resource type="Resource" id=3]
+resource_name = "pawndead Gr0"
+script = ExtResource( 3 )
 name_override = ""
-form = ExtResource( 5 )
+form = ExtResource( 2 )
 grade = 0
 seed_value = 0
-type_override = [ ExtResource( 21 ) ]
+type_override = [  ]
 type_native = [  ]
-stickers = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 10 ) ]
+stickers = [ ExtResource( 5 ), ExtResource( 6 ) ]
 stat_increments = {
 }
 exp_points = 0
-favorite = true
+favorite = false
 
 [resource]
 resource_name = "SUNNY_NAME Lv100"
 script = ExtResource( 1 )
 name = "SUNNY_NAME"
+swap_colors = [  ]
+default_palette = [  ]
+emission_palette = [  ]
 named_positions = {
 "attack": Vector2( 41, 25 ),
 "eye": Vector2( 27, 19 ),
 "hit": Vector2( 26, 28 )
 }
+elemental_types = [  ]
+exp_yield = 40
+require_dlc = ""
 character_kind = 1
+force_unrecordable = false
 human_colors = {
 "body_color_1": 6,
 "body_color_2": 2,
@@ -86,13 +92,30 @@ human_part_names = {
 }
 level = 100
 pronouns = 1
+max_ap = 5
+base_ap_regen = 2
 base_max_hp = 120
 base_melee_attack = 120
-base_melee_defense = 110
-base_ranged_defense = 110
+base_melee_defense = 115
+base_ranged_attack = 100
+base_ranged_defense = 105
 base_speed = 80
-tapes = [ SubResource( 1 ) ]
+base_accuracy = 100
+base_evasion = 100
+tapes = [ SubResource( 3 ) ]
+team_name_override = ""
+exp_gradient = 5
+exp_base_level = 0
 partner_id = "cat_sunny"
-partner_signature_species = ExtResource( 5 )
+partner_signature_species = ExtResource( 10 )
 sfx = SubResource( 2 )
-bonus_stickers = [ ExtResource( 10 ) ]
+human_colors/body_color_1 = 6
+human_colors/body_color_2 = 2
+human_colors/eye_color = 12
+human_colors/face_accessory_color = 4
+human_colors/favorite_color = 9
+human_colors/hair_accessory_color = 16
+human_colors/hair_color = 12
+human_colors/legs_color = 2
+human_colors/shoe_color = 12
+human_colors/skin_color = 14
